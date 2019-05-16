@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int arr[100],n,i;
+    std::cout<<"how many number enter"<<endl;
+    std::cin>>n;
+    for(i=0;i<n;i++)
+    {
+        std::cin>>arr[i];
+    }
+    sort(arr,arr+n);
+     for(i=0;i<n;i++)
+    {
+        std::cout<<arr[i];
+    }
+    return 0;
+}

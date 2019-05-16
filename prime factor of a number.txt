@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,arr[100],i,m,a[10],c[100],flag=0,o,j,p;
+    cin>>n;
+    p=n;
+    arr[1]=n;
+     m=2;
+     for(i=2;i<10;i++)
+     {
+         a[i]=i;
+     }
+  /*   while(n>0)
+     {
+    for(i=2;i<10;i++)
+    {
+        if(n%i==0)
+        {
+            arr[m]=i;
+            m++;
+            i=2;
+        }
+
+    }
+     n=n/i;
+     }
+    */
+    for(i=1;i<n;i++)
+    {
+        if(n%i==0)
+        {
+            arr[m]=i;
+            m++;
+        }
+
+    }
+    o=1;
+    for(i=1;i<m;i++)
+    {
+        flag=0;
+        for(j=2;j<10;j++)
+        {
+            if(((arr[i])%(a[j]))==0)
+            {
+                if(arr[i]==2||arr[i]==3||arr[i]==5||arr[i]==7)
+                {
+                     flag=0;
+                     break;
+                }
+
+                flag=1;
+                break;
+            }
+        }
+        if(arr[i]==1)
+            flag=1;
+        if(flag==0)
+        {
+            c[o]=arr[i];
+            o++;
+        }
+
+    }
+    cout<<"prime factor of "<<p<<" is : ";
+    for(i=1;i<o;i++)
+        cout<<c[i]<<" ";
+
+
+    return 0;
+}

@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a,b,c;
+    cout<<"enter the number"<<endl;
+    cin>>a>>b;
+    try
+    {
+        if(b==0)
+            throw "divide by zero error";
+        c=a/b;
+        cout<<c<<endl;
+    }
+    catch(char const *e)
+    {
+        cout<<"exception is :"<<endl;
+        cout<<e;
+    }
+    return 0;
+}

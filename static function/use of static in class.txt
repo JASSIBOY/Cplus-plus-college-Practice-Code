@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+//static member
+/*
+//it is not a part of object ,
+it is related to entire class and
+ we have to define the value of x is outside the class
+ it is common for each and every object
+ */
+using namespace std;
+class jasa
+{
+   static int total;
+   int total1;
+   public:
+    jasa()
+    {
+        total1=0;
+        total1=0;
+        total++;
+        total1++;
+        cout<<"static integer value of total is : "<<total<<endl;
+        cout<<"integer value of total1 is : "<<total1<<endl;
+    }
+};
+int jasa::total=0;
+int main()
+{
+    int i;
+    for(i=0;i<5;i++)
+    {
+        jasa j;
+    }
+    return 0;
+}

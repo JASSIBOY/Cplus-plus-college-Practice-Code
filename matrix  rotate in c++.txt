@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a[100][100],b[100][100];
+    int i,j,r,c,k,l,m,n;
+    int rot,o,p,s;
+    cin>>r>>c>>rot;
+    for(i=0;i<r;i++)
+    {
+        for(j=0;j<c;j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+    o=r;
+    p=c;
+    k=r;
+    l=c;
+    for(s=0;s<rot;s++)
+    {
+        r=o;
+        c=p;
+        k=r;
+        l=c;
+    if((r%2==0)||(c%2==0))
+    {
+        m=0;
+        n=0;
+    while((k>=2)&&(l>=2))
+    {
+    for(i=m;i<r;i++)
+    {
+        for(j=n;j<c;j++)
+        {
+
+            if((i==m)&&(j<c-1))
+            {
+                b[i][j]=a[i][j+1];
+            }
+            if((i==r-1)&&(j>n))
+            {
+                b[i][j]=a[i][j-1];
+            }
+            if((j==n)&&(i>m))
+            {
+                b[i][j]=a[i-1][j];
+            }
+            if((j==c-1)&&(i<r-1))
+            {
+                b[i][j]=a[i+1][j];
+            }
+        }
+    }
+    k=k-2;
+    l=l-2;
+    m++;
+    n++;
+    r--;
+    c--;
+    }
+    }
+
+}
+
+    for(i=0;i<o;i++)
+    {
+        for(j=0;j<p;j++)
+        {
+           cout<<b[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
+    return 0;
+}

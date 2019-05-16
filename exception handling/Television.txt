@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Television
+{
+    int model_no;
+    float size_inches;
+    float price;
+public:
+    friend istream & operator>>(istream &in,Television &b);
+    friend ostream & operator<<(ostream &out,Television &b);
+};
+istream& operator>>(istream &in,Television &b)
+{
+    cout<<"enter the model number"<<endl;
+    in>>b.model_no;
+    if(b.model_no>9999)
+    {
+        throw "model no is greater than 4 digit";
+    }
+    cout<<"enter the size in inches"<<endl;
+    in>>b.size_inches;
+    if(12.0<b.size_inches<70.0){}
+    else
+        throw "exception is occurred in size";
+    cout<<"enter the price"<<endl;
+    in>>b.price;
+    if(b.price<0 && b.price>5000)
+        throw "exception is occurred in price";
+    return in;
+
+}
+ostream& operator<<(ostream &out,Television &b)
+{
+    cout<<" model number is : ";
+    out<<b.model_no<<endl;
+
+    cout<<"size in inches is : ";
+    out<<b.size_inches<<endl;
+    cout<<" the price is : ";
+    out<<b.price<<endl;
+
+    return out;
+
+}
+int main()
+{
+    int ch;
+   Television T;
+   do
+   {
+       cout<<"1. enter the value for television"<<endl;
+       cout<<"2. display "<<endl;
+       cout<<"enter your choice"<<endl;
+       cin>>ch;
+       switch(ch)
+       {
+        case 1:
+            try
+            {
+                cin>>T;
+            }
+            catch( const char *msg)
+            {
+                cout<<msg<<endl;
+            }
+            break;
+        case 2:
+            cout<<T;
+            break;
+        default:
+            cout<<"wrong choice"<<endl;
+       }
+   }while(1);
+    return 0;
+}

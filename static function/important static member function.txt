@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+class test
+{
+    int no;
+    static int counts;
+public:
+    void setno(void);
+    void dispno();
+    static void dispcounts();
+};
+void test :: setno()
+{
+    no=++counts;
+}
+void test::dispno()
+{
+    cout<<"object number"<<no<<endl;
+}
+ void test:: dispcounts()
+{
+   cout<<"value of counts is : "<<counts<<endl;
+}
+int test::counts=0;
+int main()
+{
+   test t1;
+   test t2;
+   test::dispcounts();
+   t1.setno();
+   t2.setno();
+   test::dispcounts();
+   test t3;
+   t3.setno();
+   test::dispcounts();
+   t1.dispno();//value of no will be different for int no //https://www.youtube.com/watch?v=RpoUBYG9K2w 
+   t2.dispno();
+   t3.dispno();
+    return 0;
+}

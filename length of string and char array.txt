@@ -1,0 +1,15 @@
+1) In string
+      string str;
+      in this part string is an object;
+      we can't the use of strlen() for the size of string. 
+there is a type of find the length of string given:
+   string length==str.size();//it is right.
+
+that's we can never write ...that type 
+  string length==strlen(str);//it is wrong.
+
+2) in char array
+       char arr[1000];
+the size of char array is given below :
+ length of char array=strlen(arr);//it is right. 
+   length of char array=arr.size();//it is wrong. 

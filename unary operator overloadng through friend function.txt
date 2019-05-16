@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+class nigan
+{
+    int a,b,c;
+public:
+    nigan(){}
+    nigan(int x,int y,int z)
+    {
+        a=x;
+        b=y;
+        c=z;
+    }
+    void getdata();
+    void display();
+    friend void operator++(nigan &d);
+};
+void nigan :: getdata()
+{
+    cin>>a;
+    cin>>b;
+    cin>>c;
+}
+void nigan::display()
+{
+    cout<<a<<endl;
+    cout<<b<<endl;
+    cout<<c<<endl;
+}
+void operator++(nigan &d)
+{
+    d.a=d.a+1;
+    d.b=d.b+1;
+    d.c=d.c+1;
+}
+int main()
+{
+    nigan n;
+    n.getdata();
+    n.display();
+    ++n;
+    cout<<"++n"<<endl;
+    n.display();
+}

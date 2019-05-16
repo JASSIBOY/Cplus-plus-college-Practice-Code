@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+class test
+{
+    int code;
+    float price;
+public:
+    test(int c,float d);
+    test(const test &t);
+    void disp();
+};
+test::test(int c,float d)
+{
+    code=c;
+    price=d;
+}
+test ::test(const test &t)
+{
+    code=t.code;
+    price=t.price;
+}
+void test ::disp()
+{
+    cout<<"value of code is :"<<code<<endl;
+    cout<<"value of price is :"<<price<<endl;
+
+}
+int main()
+{
+    test t1(122,123.25);
+    test t2(t1);
+    test t3=t2;
+    cout<<"t1 object : "<<endl;
+    t1.disp();
+    cout<<"t2 object : "<<endl;
+    t2.disp();
+    cout<<"t3 object : "<<endl;
+    t3.disp();
+    return 0;
+}

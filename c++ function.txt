@@ -1,0 +1,20 @@
+ #include<bits/stdc++.h>
+ using namespace std;
+ int main()
+ {
+     int a,b,c;
+     cin>>a>>b;
+     c=max(a,b);
+     cout<<"maxi value "<<c<<endl;
+     c=min(a,b);
+     cout<<"mini value "<<c<<endl;
+     c=abs(a);
+     cout<<"absolute value of a is : "<<c<<endl;
+     c=abs(b);
+     cout<<"absolute value of b is : "<<c<<endl;
+     c=a^b;
+     cout<<" XOR of a and b is : "<<c<<endl;
+     c=a|b;
+    cout<<" OR of a and b is : "<<c<<endl;
+     return 0;
+ }

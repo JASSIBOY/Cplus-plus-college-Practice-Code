@@ -1,0 +1,45 @@
+a=[]
+r=input()
+c=input()
+rot=input()
+for i in range(0,r):
+    a.append([])
+    for j in range(0,c):
+        a[i].append(0)
+o=r;
+p=c;
+k=r;
+l=c;
+for s in range(0,rot):
+    r=o;
+    c=p;
+    k=r;
+    l=c;
+    m=0;
+    n=0;
+    while(k>=2 && l>=2):
+             for i in range(m,r):
+                 for j in range(n,c):
+                         if (i==m) and (j<c-1):
+                                 b[i][j]=a[i][j+1]
+                         if (i==r-1) and (j>n):
+                               b[i][j]=a[i][j-1]          
+                         if (j==n) and (i>m):
+                               b[i][j]=a[i-1][j];
+                         if (j==c-1)and (i<r-1):
+                              b[i][j]=a[i+1][j];
+        k=k-2;
+        l=l-2;
+        m=m+1;
+        n=n+1;
+        r=r-1;
+        c=c-1;
+        for(i=0;i<o;i++):
+            for(j=0;j<p;j++):
+                   a[i][j]=b[i][j]
+for i in range(0,o):
+     for j in range(0,p):
+              print b[i][j];
+   
+      print("\n");
+}

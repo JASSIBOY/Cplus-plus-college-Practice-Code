@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+void fun(int a,string b) //orvoid fun(int a,string b)
+{
+	throw b;
+}
+
+int main() {
+string s1="jasa";
+try
+{
+    fun(1,s1);
+}
+
+catch(string x)
+{
+    cout<<x;
+}
+return 0;
+}

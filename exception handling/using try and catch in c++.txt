@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+#include<string.h>
+using namespace std;
+void fun(string s,int l)
+{
+    int i,total=0;
+    try
+    {
+     if(l>10||l<10)
+     {
+         throw "invalid phone number";
+     }
+     else
+     {
+        for(i=0;i<10;i++)
+        {
+            if((48<=s[i])&&(s[i]<58))
+            {
+                total++;
+            }
+            else
+            {
+               throw "invalid phone number";
+            }
+        }
+        if(total==10)
+            throw "valid phone number";
+        else
+            throw "invalid phone number";
+     }
+    }
+   catch(char const* e)
+    {
+        cout<<e;
+    }
+}
+int main()
+{
+    string s;
+    int l;
+    cin>>s;
+    l=s.size();
+    fun(s,l);
+    return 0;
+}

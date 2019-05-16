@@ -1,0 +1,102 @@
+#include<bits/stdc++.h>
+#include<iostream>
+using namespace std;
+class comple
+{
+    int r ,i;
+public:
+    comple()
+    {
+        r=0;
+        i=0;
+    }
+    void num();
+    void ans();
+    comple operator+(comple);
+    comple operator-(comple);
+    comple operator*(comple);
+    comple operator/(comple);
+};
+void comple :: num()
+{
+    cout<<"enter the real number"<<endl;
+    cin>>r;
+    cout<<"enter the imaginary number"<<endl;
+    cin>>i;
+}
+void comple :: ans()
+{
+    cout<<"real number is : "<<r<<endl;
+    cout<<"imaginary number is : "<<i<<endl;
+}
+comple comple :: operator+(comple b2)
+{
+    comple b3;
+    b3.r=r+b2.r;
+    b3.i=i+b2.i;
+    return b3;
+}
+comple comple ::operator-(comple b2)
+{
+    comple b3;
+    b3.r=r-b2.r;
+    b3.i=i-b2.i;
+    return b3;
+}
+comple comple ::operator*(comple b2)
+{
+    comple b3;
+    b3.r=r*b2.r-i*b2.i;
+    b3.i=r*b2.i+i*b2.r;
+    return b3;
+}
+comple comple :: operator/(comple b2)
+{
+    comple b3;
+    b3.r=(r*b2.r+i*b2.i)/(b2.r*b2.r+b2.i*b2.i);
+    b3.i=(i*b2.r-r*b2.i)/(b2.r*b2.r+b2.i*b2.i);
+    return b3;
+}
+int main()
+{
+    comple c1,c2,c3;
+    int cho;
+    do
+    {
+        cout<<"1. enter the two complex number"<<endl;
+        cout<<"2. addition of two complex number"<<endl;
+        cout<<"3. subtraction of two complex number"<<endl;
+        cout<<"4. multiplication of two complex number"<<endl;
+        cout<<"5. division of two complex number"<<endl;
+        cout<<"6. Exit"<<endl;
+        cout<<"enter your choice"<<endl;
+        cin>>cho;
+        switch(cho)
+        {
+        case 1:
+            c1.num();
+            c2.num();
+            break;
+        case 2:
+            c3=c1+c2;
+            c3.ans();
+            break;
+        case 3:
+            c3=c1-c2;
+            c3.ans();
+            break;
+        case 4:
+            c3=c1*c2;
+            c3.ans();
+            break;
+        case 5:
+            c3=c1/c2;
+            c3.ans();
+            break;
+        case 6:
+            exit(0);
+            break;
+        }
+    }while(1);
+    return 0;
+}

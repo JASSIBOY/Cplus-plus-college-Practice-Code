@@ -1,0 +1,135 @@
+//weather report
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+using namespace std;
+class weather;
+class average
+{
+    public:
+    void avg(weather arr[]);
+};
+class weather
+{
+
+    int no_of_day;
+    int hightemp;
+    int lowtemp;
+    int amount_rain;
+    int snow;
+public:
+    weather()
+    {
+
+        no_of_day=99;
+        hightemp=999;
+        lowtemp=-999;
+        amount_rain=snow=0;
+    }
+    void day(weather arr[]);
+    void getdata(int p,weather arr[]);
+    void display(weather arr[]);
+friend class average;
+
+};
+
+void average::avg(weather arr[])
+{
+   int i,din=0,avg_ht=0,avg_lt=0,avg_rain=0,avg_snow=0;;
+    for(i=1;i<100;i++)
+    {
+     if(arr[i].no_of_day!=99)
+     {
+
+        din++;
+        avg_ht=avg_ht+arr[i].hightemp;
+        avg_lt=avg_lt+arr[i].lowtemp;
+        avg_rain=avg_rain+arr[i].amount_rain;
+        avg_snow=avg_snow+arr[i].snow;
+
+     }
+
+    }
+    cout<<"avg_no_of_day"<<"   "<<"avg_hightemp"<<"  "<<"avg_lowtemp"<<"  "<<"avg_amount_rain"<<"  "<<"avg_snow"<<endl;
+
+    cout<<din<<"\t   "<<avg_ht<<"\t   "<<avg_lt<<"\t   "<<avg_rain<<"\t    "<<avg_snow<<endl;
+
+}
+void weather::getdata(int p,weather arr[])
+{
+    int i;
+
+    for(i=1;i<=99;i++)
+    {
+        if(p==i)
+        {
+            arr[i].no_of_day=p;
+     cout<<"enter the high temperature"<<endl;
+     cin>>arr[i].hightemp;
+     cout<<"enter the low temperature"<<endl;
+     cin>>arr[i].lowtemp;
+     cout<<"enter the amount of rain"<<endl;
+     cin>>arr[i].amount_rain;
+     cout<<"enter the snow"<<endl;
+     cin>>arr[i].snow;
+        }
+
+    }
+}
+void weather :: day( weather arr[])
+{
+        int d;
+        cout<<"enter the name of day "<<endl;
+        cin>>d;
+        getdata(d,arr);
+
+}
+void weather :: display(weather arr[])
+{
+    int i;
+     cout<<"index"<<"   "<<"no_of_day"<<"   "<<"hightemp"<<"  "<<"lowtemp"<<"  "<<"amount_rain"<<"  "<<"snow"<<endl;
+    for(i=1;i<100;i++)
+    {
+
+        cout<<i<<"\t   "<<arr[i].no_of_day<<"\t    "<<arr[i].hightemp<<"\t     "<<arr[i].lowtemp<<"\t     "<<arr[i].amount_rain<<"\t      "<<arr[i].snow<<endl;
+    }
+}
+int main()
+{
+    weather w;
+    int ch;
+    weather arr[100];
+    average a;
+    char choice;
+    do
+    {
+        cout<<"\n 1. enter the weather report";
+        cout<<"\n 2. display the weather report";
+        cout<<"\n 3. display the average weather report";
+        cout<<"\n 4. exit";
+        cout<<"\n enter your choice";
+        cin>>ch;
+        switch(ch)
+        {
+     case 1:
+        w.day(arr);
+        break;
+     case 2:
+        w.display(arr);
+        break;
+     case 3:
+        a.avg(arr);
+        break;
+     case 4:
+        exit(0);
+        break;
+     default:
+        cout<<"your choice wrong";
+        }
+        cout<<"do u want to continue ?(y/n)";
+        cin>>choice;
+    }while(choice=='y'||choice=='Y');
+    return 0;
+}
+

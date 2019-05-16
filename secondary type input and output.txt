@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int x;
+  //format
+  //class  &object=object1;
+    istream &input=cin;
+    ostream &output= cout;
+    output<<"enter the number"<<endl;
+    input>>x;
+    output<<x<<endl;
+    return 0;
+}

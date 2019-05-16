@@ -1,0 +1,184 @@
+#include<iostream>
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+using namespace std;
+class library;
+
+class modifylibrary
+{
+public:
+    int insertnewbook(library arr[],int p);
+    void display(library arr[],int q);
+    void customer(library arr[],int r);
+};
+
+class library
+{
+    string author;
+    string title;
+    float price;
+    string publisher;
+    int copies;
+public:
+    int stocklib(library arr[]);
+    friend class modifylibrary;
+
+};
+void modifylibrary ::customer(library arr[],int r)
+{
+    int i,l=1,ch;
+    float totalprice;
+    string str,str1;
+    cout<<"enter the title name of book"<<endl;
+    cin>>str;
+    cout<<"enter the author name"<<endl;
+    cin>>str1;
+    for(i=1;i<r+1;i++)
+    {
+        if((str==arr[i].title)&&(str1==arr[i].author))
+        {
+            cout<<"this book is present in stock"<<endl;
+            cout<<"index"<<"\t "<<"title"<<"\t "<<"author"<<"\t "<<"price"<<"\t "<<"publisher"<<"\t "<<"no_of_copies"<<endl;
+            cout<<l<<"\t "<<arr[i].title<<"\t "<<arr[i].author<<"\t "<<arr[i].price<<"\t "<<arr[i].publisher<<"\t "<<arr[i].copies<<endl;
+            l++;
+            cout<<"how much copies do u want to purchase ?"<<endl;
+            cin>>ch;
+          if(arr[i].copies>=ch)
+          {
+        	  totalprice=ch*arr[i].price;
+        	  cout<<"total prices is:"<<endl;
+        	  cout<<"no_of_copies"<<"\t "<<"total_prices"<<endl;
+        	  cout<<ch<<"\t   "<<ch<<"\t   "<<totalprice<<endl;
+              arr[i].copies=arr[i].copies-ch;
+              if(arr[i].copies==0)
+              {
+                  arr[i].title=" ";
+                  arr[i].author=" ";
+                  arr[i].price=0;
+                  arr[i].publisher=" ";
+                  arr[i].copies=0;
+              }
+          }
+        }
+    }
+
+}
+int modifylibrary ::insertnewbook(library arr[],int p)
+{
+    int i=1;
+    cout<<"enter the title name"<<endl;
+    cin>>arr[p+i].title;
+    cout<<"enter the author name"<<endl;
+    cin>>arr[p+i].author;
+    cout<<"enter the price"<<endl;
+    cin>>arr[p+i].price;
+    cout<<"enter the publisher name"<<endl;
+    cin>>arr[p+i].publisher;
+    cout<<"enter the number of copies"<<endl;
+    cin>>arr[p+i].copies;
+    return p+i;
+}
+void modifylibrary :: display(library arr[],int q)
+{
+    int i,j,temp1;
+    string temp;
+    for(j=1;j<q+1;j++)
+    {
+    for(i=1;i<q;i++)
+    {
+        if(arr[i].title>=arr[i+1].title)
+        {
+            temp=arr[i].title;
+            arr[i].title=arr[i+1].title;
+            arr[i+1].title=temp;
+
+            temp=arr[i].author;
+            arr[i].author=arr[i+1].author;
+            arr[i+1].author=temp;
+
+            temp1=arr[i].price;
+            arr[i].price=arr[i+1].price;
+            arr[i+1].price=temp1;
+
+            temp=arr[i].publisher;
+            arr[i].publisher=arr[i+1].publisher;
+            arr[i+1].publisher=temp;
+
+            temp1=arr[i].copies;
+            arr[i].copies=arr[i+1].copies;
+            arr[i+1].copies=temp1;
+
+        }
+    }
+    }
+    cout<<"index"<<"\t "<<"title"<<"\t "<<"author"<<"\t "<<"price"<<"\t "<<"publisher"<<"\t "<<"no_of_copies"<<endl;
+    for(i=1;i<q+1;i++)
+    {
+        cout<<i<<"\t "<<arr[i].title<<"\t "<<arr[i].author<<"\t "<<arr[i].price<<"\t "<<arr[i].publisher<<"\t "<<arr[i].copies<<endl;
+    }
+}
+int library :: stocklib(library arr[])
+{
+    int totalbook;
+  arr[1].title="dsps";
+  arr[1].author="jasa";
+  arr[1].price=123.50;
+  arr[1].publisher="techmax";
+  arr[1].copies=2;
+
+  arr[2].title="math";
+  arr[2].author="yadu";
+  arr[2].price=201.50;
+  arr[2].publisher="techmax";
+  arr[2].copies=1;
+
+  arr[3].title="oops";
+  arr[3].author="nigan";
+  arr[3].price=301.50;
+  arr[3].publisher="technical";
+  arr[3].copies=4;
+  totalbook=3;
+  return totalbook;
+}
+int main()
+{
+    int totalbk,ch;
+    char choice;
+    library l;
+    modifylibrary m;
+    library arr[100];
+    totalbk=l.stocklib(arr);
+    do
+    {
+       cout<<"Welcome To Library"<<endl;
+       cout<<" 1. Insert a new book in library "<<endl;
+       cout<<" 2. Display all books"<<endl;
+       cout<<" 3. enter the author and title name of the book do u want to purchased ??"<<endl;
+       cout<<" 4. exit"<<endl;
+       cout<<"enter your choice";
+       cin>>ch;
+       switch(ch)
+       {
+       case 1:
+        totalbk=m.insertnewbook(arr,totalbk);
+        break;
+       case 2:
+        m.display(arr,totalbk);
+        break;
+       case 3:
+        m.customer(arr,totalbk);
+        break;
+       case 4:
+        exit(0);
+        break;
+       default:
+        cout<<"your choice is wrong"<<endl;
+        break;
+       }
+       cout<<"do u want to continue (y/n)?";
+       cin>>choice;
+
+    }while(choice=='y'||choice=='Y');
+    return 0;
+}

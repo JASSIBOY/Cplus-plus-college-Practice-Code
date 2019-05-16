@@ -1,0 +1,122 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Engineering;
+class Medical;
+class Other;
+
+
+class EVENTS
+{
+
+};
+class college
+{
+    string name;
+    string address;
+public:
+    college(){}
+    friend Engineering;
+    friend Medical;
+    friend Other;
+    void engcollege(Engineering e[]);
+    friend void engcollege(Engineering e[]);
+    friend void medcollege(Medical m[]);
+    friend void othcollege(Other o[]);
+};
+class Engineering
+{
+    string name;
+    string address;
+public:
+    Engineering(){}
+
+
+};
+class Medical
+{
+public:
+    Medical(){}
+
+};
+class Other
+{
+public:
+    Other(){}
+
+};
+void college ::engcollege(Engineering e[])
+{
+    e[1].name="army institute of technology"<<endl;
+    e[1].address="pune"<<endl;
+    e[2].name="coep"<<endl;
+    e[2].address="pune"<<endl;
+    e[3].name="iit kanpur"<<endl;
+    e[3].address="kanpur"<<endl;
+    e[4].name="iit bombay"<<endl;
+    e[4].address="bombay"<<endl;
+
+}
+void medcollege(Medical m);
+{
+    m[1].name="AIMS DELHI"<<endl;
+    m[1].address="delhi"<<endl;
+    m[2].name="AFMC"<<endl;
+    m[2].address="pune"<<endl;
+    m[3].name="AIMS"<<endl;
+    m[3].address="jaipur"<<endl;
+    m[4].name="medical engineering college bombay"<<endl;
+    m[4].address="bombay"<<endl;
+
+}
+void othcollege(Other o);
+{
+    o[1].name="jai narayan vyas university"<<endl;
+    o[1].address="jodhpur"<<endl;
+    o[2].name="bhimarav ambedkar university"<<endl;
+    o[2].address="barmer"<<endl;
+    o[3].name="arts of engineering college"<<endl;
+    o[3].address="pune"<<endl;
+    o[4].name="arts IAS engineering college bombay"<<endl;
+    o[4].address="bombay"<<endl;
+}
+int main()
+{
+    int ch,engtotal,medtotal,othtotal;
+    college c;
+    EVENTS E;
+    Engineering e[100];
+    Medical m[100];
+    Other o[100];
+    engtotal=engcollege(e);
+    medtotal=medcollege(m);
+    othtotal=othcollege(o);
+    cout<<"WELCOME TO COLLEGES EVENTS"<<endl;
+    do
+    {
+        cout<<"1. welcome to engineering colleges events"<<endl;
+        cout<<"2. welcome to medical colleges events"<<endl;
+        cout<<"3. welcome to other colleges events"<<endl;
+        cout<<"4. Exit"<<endl;
+        cout<<"enter your choice"<<endl;
+        cin>>ch;
+        switch(ch)
+        {
+        case 1:
+            e.engincolez();
+            break;
+        case 2:
+            m.medicolez();
+            break;
+        case 3:
+            o.othcolez();
+            break;
+        case 4:
+            exit(0);
+            break;
+        default:
+            cout<<"your choice is wrong "<<endl;
+            break;
+        }
+    }while(1)
+    return 0;
+}

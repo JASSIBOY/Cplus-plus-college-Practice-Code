@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    try
+    {
+        int a=10;
+        string s="jasaram";
+        //throw a;
+        //throw s;
+        //throw "some exception";
+        //throw runtime_error("jasaram choudhary");
+        throw 2.78;
+    }
+    catch(int a)
+    {
+        cout<<"integer is : "<<a<<endl;
+    }
+    catch(string  e)
+    {
+    cout<<e<<endl;
+    }
+    catch(const char *e)
+    {
+        cout<<e<<endl;
+    }
+
+    catch(runtime_error &e)
+    {
+        cout<<e.what()<<endl;
+    }
+    catch(...)
+    {
+        cout<<"some exception"<<endl;
+    }
+    return 0;
+}

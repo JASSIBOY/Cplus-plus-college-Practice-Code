@@ -1,0 +1,19 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+void jasa()
+{
+   static int total=0;
+   int total1=0;
+    total++;
+    total1++;
+    cout<<"static integer total is : "<<total<<endl;
+    cout<<"integer total1 is : "<<total1<<endl;
+}
+int main()
+{
+    int i;
+    for(i=0;i<5;i++)
+        jasa();
+    return 0;
+}

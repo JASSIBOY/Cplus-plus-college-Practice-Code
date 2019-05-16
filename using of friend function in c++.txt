@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+class sorting
+{
+    int n,arr[100];
+public:
+    sorting()
+    {
+        n=0;
+    }
+    void input();
+    friend void sortfun(sorting b);
+};
+void sorting ::input()
+{
+    int i,x,a[100];
+    cout<<"how many enter number do u want to sort "<<endl;
+    cin>>x;
+    n=x;
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+        arr[i]=a[i];
+    }
+
+}
+void sortfun(sorting b)
+{
+    int i;
+    sort(b.arr,b.arr+b.n);
+    for(i=0;i<b.n;i++)
+    {
+        cout<<b.arr[i]<<" ";
+    }
+
+}
+int main()
+{
+    sorting s;
+    s.input();
+    sortfun(s);
+    return 0;
+}

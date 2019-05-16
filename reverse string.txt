@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string str;
+    cout<<"enter the string"<<endl;
+    getline(cin,str);
+    reverse(str.begin(),str.end());
+   cout<<str.begin();
+    cout<<str;
+    return 0;
+}

@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+char ch='y';
+    int x;
+    vector<int> vec;
+    cout<<"vector size is : "<<vec.size()<<endl;
+    int tot;
+    while(ch=='y')
+    {
+        cout<<"enter the element"<<endl;
+        cin>>x;
+        vec.push_back(x);
+        cout<<"do u want to push more(y/n ?)"<<endl;
+        cin>>ch;
+    }
+    tot=vec.size();
+    for(int i=0;i<tot;i++)
+    {
+        cout<<vec[i]<<" ";
+    }
+    cout<<"\n pop the element "<<endl;
+    vec.pop_back();
+     tot=vec.size();
+    for(int i=0;i<tot;i++)
+    {
+        cout<<vec[i]<<" ";
+    }
+    // use of iterator
+    cout<<"\n print the element using iterator"<<endl;
+    vector<int> :: iterator v=vec.begin();
+    while(v!=vec.end())
+    {
+        cout<<*v<<" ";
+        v++;
+    }
+    cout<<"\n expanded vector size is : "<<vec.size()<<endl;
+    vec.clear();
+    cout<<"after clear size of vector is : "<<vec.size()<<endl;
+    if(!vec.empty())
+    {
+        cout<<"vector is not empty"<<endl;
+    }
+    else
+    {
+        cout<<"vector is empty"<<endl;
+    }
+    return 0;
+}
